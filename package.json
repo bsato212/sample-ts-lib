@@ -2,8 +2,8 @@
   "name": "@bsato212/sample-ts-lib",
   "version": "1.0.1",
   "description": "Sample TypeScript Library",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "start": "ts-node src",
     "lint": "eslint . --ext .ts",
