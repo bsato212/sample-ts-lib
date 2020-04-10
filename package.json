@@ -1,6 +1,6 @@
 {
   "name": "@bsato212/sample-ts-lib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Sample TypeScript Library",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -34,7 +34,9 @@
   "files": [
     "dist/**/*"
   ],
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "devDependencies": {
     "@types/jest": "^25.1.5",
     "@types/node": "^13.11.0",
