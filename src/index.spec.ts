@@ -13,6 +13,10 @@ describe('Index Module', () => {
     expect(index.SayBaz()).toEqual('Baz!');
   });
 
+  test('SayQux should return a string', () => {
+    expect(index.SayQux()).toEqual('Qux!');
+  });
+
   test('SayAnything should return a string', () => {
     expect(index.SayAnything('Anything')).toEqual('Anything!');
   });
