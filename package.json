@@ -1,5 +1,5 @@
 {
-  "name": "sample-ts-lib",
+  "name": "@bsato212/sample-ts-lib",
   "version": "1.0.0",
   "description": "Sample TypeScript Library",
   "main": "lib/index.js",
