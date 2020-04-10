@@ -1,6 +1,6 @@
 {
   "name": "@bsato212/sample-ts-lib",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Sample TypeScript Library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
