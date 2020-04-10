@@ -1,0 +1,70 @@
+{
+  "name": "sample-ts-lib",
+  "version": "1.0.0",
+  "description": "Sample TypeScript Library",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "start": "ts-node src",
+    "lint": "eslint . --ext .ts",
+    "lint-fix": "eslint . --ext .ts --fix",
+    "test": "NODE_ENV=test jest --coverage",
+    "build": "rimraf dist && tsc",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run lint && npm test",
+    "preversion": "npm run lint",
+    "version": "npm run lint-fix && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "author": "bsato212",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bsato212/sample-ts-lib.git"
+  },
+  "keywords": [
+    "Sample",
+    "TypeScript",
+    "Library"
+  ],
+  "bugs": {
+    "url": "https://github.com/bsato212/sample-ts-lib/issues"
+  },
+  "homepage": "https://github.com/bsato212/sample-ts-lib#readme",
+  "files": [
+    "dist/**/*"
+  ],
+  "devDependencies": {
+    "@types/jest": "^25.1.5",
+    "@types/node": "^13.11.0",
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "@typescript-eslint/parser": "^2.26.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.3",
+    "jest": "^25.2.7",
+    "prettier": "^2.0.2",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^25.3.1",
+    "ts-node": "^8.8.1",
+    "typescript": "^3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "clearMocks": true,
+    "coverageDirectory": "coverage",
+    "coverageReporters": [
+      "text",
+      "html",
+      "lcov"
+    ]
+  }
+}
