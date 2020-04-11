@@ -50,10 +50,6 @@ jobs:
           command: npm ci
 
       - run:
-          name: version
-          command: npm version --no-git-tag-version $CIRCLE_TAG
-
-      - run:
           name: publish
           command: npm publish
 
