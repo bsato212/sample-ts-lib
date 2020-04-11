@@ -51,7 +51,10 @@ jobs:
 
       - run:
           name: npm registry
-          command: echo "//npm.pkg.github.com/:_authToken=$GITHUB_AUTH_TOKEN" >> ~/.npmrc
+          command: |
+            echo "@bsato212:registry=https://npm.pkg.github.com" > ~/.npmrc
+            echo "//npm.pkg.github.com/:_authToken=$GITHUB_AUTH_TOKEN" >> ~/.npmrc
+            npm set @bsato212:registry https://npm.pkg.github.com
 
       - run:
           name: npm install
