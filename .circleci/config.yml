@@ -16,7 +16,7 @@ jobs:
 
       - run:
           name: npm registry
-          command: echo "//npm.pkg.github.com/:_authToken=$GITHUB_AUTH_TOKEN" >> ~/.npmrc
+          command: echo "//npm.pkg.github.com/:_authToken=$GITHUB_AUTH_TOKEN" >> ~/repo/.npmrc
 
       - run:
           name: npm install
