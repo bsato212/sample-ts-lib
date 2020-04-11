@@ -17,8 +17,10 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
+        always-auth: true
         node-version: '12.x'
-        registry-url: https://npm.pkg.github.com/bsato212
+        registry-url: https://npm.pkg.github.com
+        scope: '@bsato212'
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
