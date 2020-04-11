@@ -1,0 +1,73 @@
+version: 2
+jobs:
+  ci:
+    docker:
+      - image: circleci/node:12
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - restore_cache:
+        keys:
+          - sample-ts-lib-{{ checksum "package-lock.json" }}
+          - sample-ts-lib-
+
+      - run:
+        name: npm install
+        command: npm ci
+
+      - save_cache:
+        paths:
+          - node_modules
+        key: sample-ts-lib-{{ checksum "package-lock.json" }}
+
+      - run:
+        name: lint
+        command: npm run lint
+
+      - run:
+        name: test
+        command: npm run test
+
+  publish:
+    docker:
+      - image: circleci/node:12
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - restore_cache:
+        keys:
+          - sample-ts-lib-{{ checksum "package-lock.json" }}
+          - sample-ts-lib-
+
+      - run:
+        name: npm install
+        command: npm ci
+
+      - run:
+        name: version
+        command: npm version --no-git-tag-version $CIRCLE_TAG
+
+      - run:
+        name: publish
+        command: npm publish
+
+workflows:
+  version: 2
+  ci_and_publish:
+    jobs:
+      - ci:
+          filters:
+            tags:
+              ignore: /.*/
+      - publish:
+          filters:
+            tags:
+              only: /^[0-9]+\.[0-9]+\.[0-9]+$/
+            branches:
+              ignore: /.*/
